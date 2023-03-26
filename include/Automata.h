@@ -4,20 +4,20 @@
 #include <string>
 
 class Automata {
-public:
+ public:
     enum States { OFF, WAIT, ACCEPT, CHECK, COOK };
     States state;
     double cash;
     int linesInMenu;
     std::string* menu;
     double* prices;
-public:
+ public:
     Automata();
     void on();
     void off();
     void coin(int);
     void getMenu();
-	States getState();
+    States getState();
     void choice(int);
     void check(int);
     void cancel();
