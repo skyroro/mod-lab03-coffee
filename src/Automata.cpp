@@ -13,12 +13,14 @@ void Automata::on() {
 }
 
 void Automata::off() {
-    state = OFF;
+    if (state == WAIT) state = OFF;
 }
 
 void Automata::coin(int sum) {
-     state = ACCEPT;
-     cash += sum;
+    if (state == WAIT || state == ACCEPT) {
+        state = ACCEPT;
+        cash += sum;
+    }
 }
 
 void Automata::getMenu() {
