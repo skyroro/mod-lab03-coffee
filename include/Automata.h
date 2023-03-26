@@ -1,3 +1,4 @@
+// Copyright 2022 GHA Test Team
 #pragma once
 #include <iostream>
 #include <string>
