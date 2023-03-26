@@ -5,7 +5,7 @@ Automata::Automata() {
     state = OFF;
     cash = 0;
     linesInMenu = 5;
-    menu = new std::string[linesInMenu] { "Espresso", "Americano", "Cappuccino", "Latte", "Cocoa" };
+    menu = new std::string[linesInMenu] { "Esp", "Am", "Cap", "Lat", "Coca" };
     prices = new double[linesInMenu] {50, 45, 60, 60, 40};
 }
 
@@ -42,15 +42,15 @@ void Automata::choice(int beverageNumber) {
         std::cout << "Selected " << menu[beverageNumber] << " \n";
         state = CHECK;
         check(beverageNumber);
-    }          
+    }
 }
 
-void Automata::check(int beverageNumber) {
-    if (prices[beverageNumber - 1] > cash) {
-        std::cout << "Not enough " << (prices[beverageNumber - 1] - cash) << " \n";
+void Automata::check(int n) {
+    if (prices[n - 1] > cash) {
+        std::cout << "Not enough " << (prices[n - 1] - cash) << " \n";
         cancel();
     } else {
-        cook(beverageNumber);
+        cook(n);
     }
 }
 
@@ -61,7 +61,7 @@ void Automata::cancel() {
 
 void Automata::cook(int beverageNumber) {
     state = COOK;
-    std::cout << "Thanks for the purchase! Prepare your " << menu[beverageNumber] << " \n";
+    std::cout << "Prepare your " << menu[beverageNumber] << " \n";
     double change = cash - prices[beverageNumber - 1];
     finish(change);
 }
